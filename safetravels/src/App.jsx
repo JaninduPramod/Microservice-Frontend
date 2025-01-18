@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
 import BasicButtonGroup from './Components/demo.jsx'; 
-import BasicTextFields from './Components/textBox.jsx'; 
+import DividerVariants from './Components/list.jsx';
 import Button from '@mui/material/Button';
 import Axios from 'axios';
-
 
 
 function App() {
@@ -43,16 +42,12 @@ function App() {
     <>
     <BasicButtonGroup btnSouthern={fetchSouthernData} btnEastern={fetchEasternData} btnWestern={fetchWesternData}/>
 
-    <BasicTextFields txtClassName="userName" txtValue={hotel.address} />
-      <BasicTextFields  txtClassName="password" txtValue={hotel.telephone} />
-      <BasicTextFields txtClassName="email" txtValue={hotel.province} />
-      <BasicTextFields txtClassName="mobile" txtValue={hotel.package_type} />
 
     <div className='btnFetch'>
       <Button  variant="outlined" onClick={fetchUserData}>Fetch Data</Button>
     </div>
     
-    
+    <DividerVariants/>
     </>
   );
 }

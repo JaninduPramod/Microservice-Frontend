@@ -1,0 +1,47 @@
+.btnProvinces {
+    position: absolute;
+    /* top: 35%;  */
+    left: 25%;   
+}
+.hotelDetails
+{
+    position: absolute;
+    top: 35%; /* Position from the top */
+    left: 35%; /* Position from the left */
+
+}
+
+.userName
+{
+    position: absolute;
+    top: 25%; /* Position from the top */
+    left: 35%; /* Position from the left */
+}
+
+.password
+{
+    position: absolute;
+    top: 35%; /* Position from the top */
+    left: 35%; /* Position from the left */
+}
+
+.email
+{
+    position: absolute;
+    top: 45%; /* Position from the top */
+    left: 35%; /* Position from the left */
+}
+
+.mobile
+{
+    position: absolute;
+    top: 55%; /* Position from the top */
+    left: 35%; /* Position from the left */
+}
+
+.btnFetch
+{
+    position: absolute;
+    top: 65%; /* Position from the top */
+    left: 35%; /* Position from the left */
+}

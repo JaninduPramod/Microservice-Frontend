@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
+import './App.css';
 
 export default function BookingPage() {
-
     const [hotel, setHotel] = useState('');
     const [packageType, setPackageType] = useState('');
     const [noOfDays, setNoOfDays] = useState('');
+    const [noOfPackages, setNoOfPackages] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
 
         const formData = {
             hotel_id: hotel === 'hotel1' ? 1 : hotel === 'hotel2' ? 2 : 3, 
             package_id: packageType ==='family' ? 1 :packageType === 'couple' ?2:3,
             no_of_days: noOfDays,
+            no_of_packages: noOfPackages,
             booking_status: 'pending',
         };
 
@@ -30,13 +31,12 @@ export default function BookingPage() {
     };
 
   return (
-    <div style={{ maxWidth: '250px', margin: 'auto', padding: '20px', border: '1px solid #ddd', borderRadius: '8px', backgroundColor: '#f9f9f9' }}>
+    <div className="booking-container">
         <form onSubmit={handleSubmit}>
-            <div style={{ marginBottom: '15px' }}>
-                <label htmlFor="hotel" style={{ fontWeight: 'bold', marginBottom: '5px', display: 'block' }}>Select Hotel:</label>
+            <div className="form-group">
+                <label htmlFor="hotel">Select Hotel:</label>
                 <select 
                     id="hotel" 
-                    style={{ width: '80%', padding: '10px', fontSize: '16px', border: '1px solid #ccc', borderRadius: '4px' }}
                     value={hotel}
                     onChange={(e) => setHotel(e.target.value)}
                 >
@@ -46,11 +46,10 @@ export default function BookingPage() {
                 </select>
             </div>
 
-            <div style={{ marginBottom: '15px' }}>
-                <label htmlFor="package" style={{ fontWeight: 'bold', marginBottom: '5px', display: 'block' }}>Select Package Type:</label>
+            <div className="form-group">
+                <label htmlFor="package">Select Package Type:</label>
                 <select 
                     id="package" 
-                    style={{ width: '80%', padding: '10px', fontSize: '16px', border: '1px solid #ccc', borderRadius: '4px' }}
                     value={packageType}
                     onChange={(e) => setPackageType(e.target.value)}
                 >
@@ -60,28 +59,30 @@ export default function BookingPage() {
                 </select>
             </div>
 
-            <div style={{ marginBottom: '15px' }}>
-                <label htmlFor="days" style={{ fontWeight: 'bold', marginBottom: '5px', display: 'block' }}>No of Days:</label>
+            <div className="form-group">
+                <label htmlFor="noOfPackages">No of Packages:</label>
+                <input 
+                    type="number" 
+                    id="noOfPackages" 
+                    className="input-number"
+                    value={noOfPackages}
+                    onChange={(e) => setNoOfPackages(e.target.value)}
+                />
+            </div>
+
+            <div className="form-group">
+                <label htmlFor="days">No of Days:</label>
                 <input 
                     type="number" 
                     id="days" 
-                    style={{ width: '40%', padding: '10px', fontSize: '16px', border: '1px solid #ccc', borderRadius: '4px' }} 
+                    className="input-number"
                     value={noOfDays}
                     onChange={(e) => setNoOfDays(e.target.value)}
                 />
             </div>
 
-            <div style={{ textAlign: 'center' }}>
-                <button type="submit" style={{
-                    padding: '10px 20px',
-                    backgroundColor: '#4CAF50',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    fontSize: '16px',
-                    cursor: 'pointer',
-                    transition: 'background-color 0.3s'
-                }}>
+            <div className="center-align">
+                <button type="submit" className="submit-btn">
                     Book
                 </button>
             </div>

@@ -9,15 +9,15 @@ export default function BookingPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+    
         const formData = {
             hotel_id: hotel === 'hotel1' ? 1 : hotel === 'hotel2' ? 2 : 3, 
-            package_id: packageType ==='family' ? 1 :packageType === 'couple' ?2:3,
+            package_id: packageType === 'family' ? 1 : packageType === 'single' ? 2 : 3,
             no_of_days: noOfDays,
             no_of_packages: noOfPackages,
             booking_status: 'pending',
         };
-
+    
         fetch('http://localhost:8081/api/v4/newbooking', {
             method: 'POST',
             headers: {
@@ -25,9 +25,10 @@ export default function BookingPage() {
             },
             body: JSON.stringify(formData),
         })
-        .then(response => response.json())
-        .then(data => console.log('Booking successful:', data))
-        .catch(error => console.error('Error:', error));
+        .then(response=>response.text())
+        .then(message=>alert(message))
+        .catch(error => alert('Error: ' + error.message));
+        
     };
 
   return (
@@ -40,9 +41,9 @@ export default function BookingPage() {
                     value={hotel}
                     onChange={(e) => setHotel(e.target.value)}
                 >
-                    <option value="hotel1">Southern</option>
-                    <option value="hotel2">Western</option>
-                    <option value="hotel3">Eastern</option>
+                    <option value="hotel1">Hotel One</option>
+                    <option value="hotel2">Hotel Two</option>
+                    <option value="hotel3">Hotel Three</option>
                 </select>
             </div>
 

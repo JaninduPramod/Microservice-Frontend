@@ -1,0 +1,161 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main container */
+.app-container {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+/* Header */
+.app-header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+/* Content section */
+.content {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.content h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+/* Button styling */
+.cta-button {
+  padding: 15px 25px;
+  font-size: 1.2em;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button hover effects */
+.cta-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+/* Ensure cards are displayed horizontally */
+.row {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping, display cards in a single line */
+  gap: 10px; /* Space between cards */
+  justify-content: flex-start;
+}
+
+/* Adjust card height */
+.card {
+  width: 290px; 
+  height:auto; 
+  margin-bottom: 0;
+ 
+}
+
+
+.card-img-top {
+  object-fit: cover;
+  height: 200px; 
+}
+
+
+h2 {
+  font-family: 'Arial', sans-serif; 
+  font-size: 2.5em;
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
+  position: relative; 
+}
+
+h2::after {
+  content: ''; 
+  display: block;
+  width: 50%; 
+  height: 3px;
+  background: linear-gradient(45deg, #4788ff, #388E3C);
+  margin: 10px auto 0; 
+}
+
+
+
+/* Description Section */
+.description-section {
+  margin-top: 50px;
+  background-color: #2e2e2e;
+  padding: 50px 0;
+  color: white;
+  text-align: center;
+}
+
+.feature-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.feature-box {
+  background-color: #233876;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  color: white;
+  width: 100%;
+}
+
+.feature-box.highlight {
+  background-color: #3b82f6;
+}
+
+.feature-box h4 {
+  margin-bottom: 10px;
+}
+
+.feature-box p {
+  margin-bottom: 0;
+}
+
+.travel-industry {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2em;
+  color: #333;
+  line-height: 1.6;
+  text-align: center;
+ 
+  padding: 20px;
+ 
+  
+  margin: 20px auto;
+  width: 80%;
+}

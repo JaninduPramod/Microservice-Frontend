@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './App.css';
+import "./Booking.css";
+
 
 export default function BookingPage() {
     const [hotel, setHotel] = useState('');

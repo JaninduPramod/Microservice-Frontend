@@ -12,7 +12,7 @@ import img5 from "../assets/img2.jpg";
 import img6 from "../assets/img3.jpg";
 import img7 from "../assets/img4.jpg";
 
-import descImg from "../assets/Layer 1.png"; // Add an appropriate image
+import descImg from "../assets/sri.jpg"; // Add an appropriate image
 
 function App() {
   return (
@@ -79,6 +79,14 @@ function App() {
       </div>
 
 
+
+
+
+
+
+
+
+
       {/* Description Section */}
       <div className="description-section">
         <div className="container">
@@ -88,22 +96,12 @@ function App() {
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et sapien quis at tempus dolor sapien sed.</p>
             </div>
             <div className="col-md-6">
-              <img src={descImg} alt="Classroom" className="img-fluid rounded" />
-            </div>
+              <img src={descImg} alt="Classroom" className="img-fluid rounded" />  </div>
           </div>
           <div className="row feature-section mt-4">
-            <div className="col-md-3">
-              <div className="feature-box">
-                <h4>Enroll</h4>
-                <p>Lorem ipsum dolor sit amet.</p>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="feature-box highlight">
-                <h4>Teach</h4>
-                <p>Lorem ipsum dolor sit amet.</p>
-              </div>
-            </div>
+            
+             
+           
            
             
           </div>

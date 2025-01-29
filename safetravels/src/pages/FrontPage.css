@@ -159,3 +159,16 @@ h2::after {
   margin: 20px auto;
   width: 80%;
 }
+.card-img-top {
+  cursor: pointer;
+  width: auto;
+  height: 200px;
+  
+  transition: height 0.3s ease-in-out, border-radius 0.3s ease-in-out; 
+}
+
+.card-img-top:hover {
+  height: 210px;
+  width: auto;
+  border-radius: 7px;
+}

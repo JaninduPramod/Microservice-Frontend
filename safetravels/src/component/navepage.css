@@ -57,6 +57,18 @@ h1 {
   padding: 8px;
   text-align: left;
 }
+.bg-body-tertiary {
+  /* Smooth initial gradient */
+  background: linear-gradient(to right, #c1edfa, #a0d8ef);
+   /* Double width for sliding effect */
+  transition: background-position 1s ease-in-out; 
+}
+
+.bg-body-tertiary:hover {
+  
+  background: linear-gradient(to right, #c1edfa, #c1fac6, #a0d8ef); /* Matching number of colors */
+}
+
 
 .table th {
   background-color: #f4f4f4;

@@ -50,3 +50,14 @@
 .center-align {
   text-align: center;
 }
+.rounded-start{
+  width:auto;
+  height: 700px;
+}
+
+.custom-image {
+  width: 750px;
+  height: auto;
+}
+.image11{width: 750px;
+  height: auto;}

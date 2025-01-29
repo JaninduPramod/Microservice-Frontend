@@ -1,94 +1,133 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./Booking.css";
 
-
 export default function BookingPage() {
-    const [hotel, setHotel] = useState('');
-    const [packageType, setPackageType] = useState('');
-    const [noOfDays, setNoOfDays] = useState('');
-    const [noOfPackages, setNoOfPackages] = useState('');
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const selectedImage = queryParams.get('image') || "https://via.placeholder.com/150"; // Default image
+  const hotelNumber = queryParams.get('hotel') || "1"; // Get the hotel number from the URL query
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    
-        const formData = {
-            hotel_id: hotel === 'hotel1' ? 1 : hotel === 'hotel2' ? 2 : 3, 
-            package_id: packageType === 'family' ? 1 : packageType === 'single' ? 2 : 3,
-            no_of_days: noOfDays,
-            no_of_packages: noOfPackages,
-            booking_status: 'pending',
-        };
-    
-        fetch('http://localhost:8081/api/v4/newbooking', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        })
-        .then(response=>response.text())
-        .then(message=>alert(message))
-        .catch(error => alert('Error: ' + error.message));
-        
+  const [hotel, setHotel] = useState(hotelNumber);
+  const [packageType, setPackageType] = useState('');
+  const [noOfDays, setNoOfDays] = useState('');
+  const [noOfPackages, setNoOfPackages] = useState('');
+
+  useEffect(() => {
+    setHotel(hotelNumber); // Update hotel based on URL parameter
+  }, [hotelNumber]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = {
+      hotel_id: hotel === '1' ? 1 : hotel === '2' ? 2 : 3,
+      package_id: packageType === 'family' ? 1 : packageType === 'single' ? 2 : 3,
+      no_of_days: noOfDays,
+      no_of_packages: noOfPackages,
+      booking_status: 'pending',
     };
 
+    fetch('http://localhost:8081/api/v4/newbooking', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(response => response.text())
+      .then(message => alert(message))
+      .catch(error => alert('Error: ' + error.message));
+  };
+
   return (
-    <div className="booking-container">
-        <form onSubmit={handleSubmit}>
-            <div className="form-group">
-                <label htmlFor="hotel">Select Hotel:</label>
-                <select 
+    <div className="container mt-4">
+      <div className="card mb-3" >
+        <div className="row g-0">
+          <div className="col-md-4">
+          <img 
+      src={selectedImage} 
+      className="img-fluid rounded-start custom-image" 
+      alt="Selected" 
+    />
+          </div>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h5 className="card-title">Book Your Stay</h5>
+              <p className="card-text">
+                Choose your preferred hotel and package, then submit your booking request.
+              </p>
+
+              {/* Booking Form Inside the Card */}
+              <form onSubmit={handleSubmit}>
+                <div className="mb-2">
+                  <label htmlFor="hotel" className="form-label">Select Hotel:</label>
+                  <select 
                     id="hotel" 
+                    className="form-control"
                     value={hotel}
                     onChange={(e) => setHotel(e.target.value)}
-                >
-                    <option value="hotel1">Hotel One</option>
-                    <option value="hotel2">Hotel Two</option>
-                    <option value="hotel3">Hotel Three</option>
-                </select>
-            </div>
+                  >
+                    <option value="1">Hotel 1</option>
+                    <option value="2">Hotel 2</option>
+                    <option value="3">Hotel 3</option>
+                  </select>
+                </div>
 
-            <div className="form-group">
-                <label htmlFor="package">Select Package Type:</label>
-                <select 
+                <div className="mb-2">
+                  <label htmlFor="package" className="form-label">Select Package Type:</label>
+                  <select 
                     id="package" 
+                    className="form-control"
                     value={packageType}
                     onChange={(e) => setPackageType(e.target.value)}
-                >
+                  >
+                    <option value="">-- Select Package --</option>
                     <option value="family">Family Package</option>
                     <option value="couple">Couple Package</option>
                     <option value="single">Individual Package</option>
-                </select>
-            </div>
+                  </select>
+                </div>
 
-            <div className="form-group">
-                <label htmlFor="noOfPackages">No of Packages:</label>
-                <input 
+                <div className="mb-2">
+                  <label htmlFor="noOfPackages" className="form-label">No of Packages:</label>
+                  <input 
                     type="number" 
                     id="noOfPackages" 
-                    className="input-number"
+                    className="form-control"
                     value={noOfPackages}
                     onChange={(e) => setNoOfPackages(e.target.value)}
-                />
-            </div>
+                    min="1"
+                  />
+                </div>
 
-            <div className="form-group">
-                <label htmlFor="days">No of Days:</label>
-                <input 
+                <div className="mb-2">
+                  <label htmlFor="days" className="form-label">No of Days:</label>
+                  <input 
                     type="number" 
                     id="days" 
-                    className="input-number"
+                    className="form-control"
                     value={noOfDays}
                     onChange={(e) => setNoOfDays(e.target.value)}
-                />
-            </div>
+                    min="1"
+                  />
+                </div>
 
-            <div className="center-align">
-                <button type="submit" className="submit-btn">
-                    Book
-                </button>
+                <div className="text-center">
+                  <button type="submit" className="btn btn-primary">
+                    Book Now
+                  </button>
+                </div>
+              </form>
+
+              <p className="card-text mt-2">
+                <small className="text-body-secondary">Last updated a few moments ago</small>
+              </p>
             </div>
-        </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,63 +1,87 @@
-.booking-container {
-  max-width: 350px;
-  position: relative;
-  top: 80px;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+
+.container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5; 
 }
 
-.form-group {
-  margin-bottom: 15px;
+
+.card-container1 {
+  width: 90%;
+  max-width: 800px;
+  background: #ffffff; 
+  border: 2px solid #ddd; 
+  border-radius: 12px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  margin: 20px auto;
 }
 
-.form-group label {
+
+.image-container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.image11 {
+  width: 100%;
+  max-width: 750px;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #ddd; 
+  object-fit: cover;
+}
+
+
+.form-label1 {
   font-weight: bold;
   margin-bottom: 5px;
   display: block;
 }
 
-.form-group select, 
-.form-group input {
-  width: 100%;
+.form-control1 {
+  border-radius: 6px;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 4px;
 }
 
-.input-number {
-  width: 40%;
-}
 
-.submit-btn {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
+.btn-primary1 {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 6px;
+  background-color: #007bff;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease-in-out, transform 0.2s;
 }
 
-.submit-btn:hover {
-  background-color: #a1ffa6;
+.btn-primary1:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px); 
 }
 
-.center-align {
-  text-align: center;
-}
-.rounded-start{
-  width:auto;
-  height: 700px;
-}
 
-.custom-image {
-  width: 750px;
-  height: auto;
+@media (max-width: 768px) {
+  .card-container1 {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .btn-primary1 {
+    font-size: 16px;
+  }
 }
-.image11{width: 750px;
-  height: auto;}
+.m2{
+background-color: #ffffff;
+padding: 20px;
+border-radius: 10px;
+border: 1px solid #e0e0e0;
+
+}

@@ -42,36 +42,38 @@ export default function BookingPage() {
   };
 
   return (
-    <div className="container mt-4">
-      <div className="card mb-3" >
-        <div className="row g-0">
-          <div className="col-md-4">
+    <div className="container1 mt-4">
+      <div className="m2" >
+        <div className="">
+          <div className="">
+          <h5 className="card-title1">Book Your Stay</h5>
           <img 
       src={selectedImage} 
-      className="img-fluid rounded-start custom-image" 
+      className="image11" 
       alt="Selected" 
     />
           </div>
-          <div className="col-md-8">
-            <div className="card-body">
-              <h5 className="card-title">Book Your Stay</h5>
-              <p className="card-text">
+          <div className="">
+            <div className="image22">
+              <h5></h5>
+              <p className="card-text1">
                 Choose your preferred hotel and package, then submit your booking request.
               </p>
 
               {/* Booking Form Inside the Card */}
               <form onSubmit={handleSubmit}>
                 <div className="mb-2">
-                  <label htmlFor="hotel" className="form-label">Select Hotel:</label>
+                  <label htmlFor="hotel1" className="form-label1">Select Hotel:</label>
                   <select 
                     id="hotel" 
                     className="form-control"
                     value={hotel}
                     onChange={(e) => setHotel(e.target.value)}
                   >
-                    <option value="1">Hotel 1</option>
-                    <option value="2">Hotel 2</option>
-                    <option value="3">Hotel 3</option>
+                    <option value="1"> 1</option>
+                    <option value="2"> 2</option>
+                    <option value="3"> 3</option>
+                    <option value="4"> 4</option>
                   </select>
                 </div>
 

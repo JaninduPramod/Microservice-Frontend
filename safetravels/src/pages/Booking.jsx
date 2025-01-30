@@ -6,8 +6,8 @@ import "./Booking.css";
 export default function BookingPage() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const selectedImage = queryParams.get('image') || "https://via.placeholder.com/150"; // Default image
-  const hotelNumber = queryParams.get('hotel') || "1"; // Get the hotel number from the URL query
+  const selectedImage = queryParams.get('image') || "https://via.placeholder.com/150"; 
+  const hotelNumber = queryParams.get('hotel') || "1"; 
 
   const [hotel, setHotel] = useState(hotelNumber);
   const [packageType, setPackageType] = useState('');
@@ -15,7 +15,7 @@ export default function BookingPage() {
   const [noOfPackages, setNoOfPackages] = useState('');
 
   useEffect(() => {
-    setHotel(hotelNumber); // Update hotel based on URL parameter
+    setHotel(hotelNumber); 
   }, [hotelNumber]);
 
   const handleSubmit = (e) => {
@@ -60,7 +60,7 @@ export default function BookingPage() {
                 Choose your preferred hotel and package, then submit your booking request.
               </p>
 
-              {/* Booking Form Inside the Card */}
+    
               <form onSubmit={handleSubmit}>
                 <div className="mb-2">
                   <label htmlFor="hotel1" className="form-label1">Select Hotel:</label>
@@ -74,6 +74,7 @@ export default function BookingPage() {
                     <option value="2"> 2</option>
                     <option value="3"> 3</option>
                     <option value="4"> 4</option>
+                    
                   </select>
                 </div>
 

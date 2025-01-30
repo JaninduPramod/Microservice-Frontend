@@ -1,11 +1,11 @@
-/* Basic reset */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Main container */
+
 .registration-container {
   display: flex;
   flex-direction: column;
@@ -16,14 +16,14 @@
   font-family: 'Arial', sans-serif;
 }
 
-/* Heading */
+
 h2 {
   font-size: 2em;
   color: #333;
   margin-bottom: 20px;
 }
 
-/* Form styling */
+
 .registration-form {
   width: 100%;
   max-width: 400px;

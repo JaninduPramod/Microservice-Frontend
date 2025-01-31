@@ -4,13 +4,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./FrontPage.css";
 
-import img1 from "../assets/hotel-image.png";
-import img2 from "../assets/Layer 1.png";
-import img3 from "../assets/sri_lanka_gebeco_web-05024-1.png";
-import img4 from "../assets/img1.jpg";
-import img5 from "../assets/img2.jpg";
-import img6 from "../assets/img3.jpg";
-import img7 from "../assets/img4.jpg";
+import img1 from "../assets/img5.png";
+import img2 from "../assets/img6.png";
+import img3 from "../assets/img7.png";
+import img4 from "../assets/img1.png";
+import img5 from "../assets/img2.png";
+import img6 from "../assets/img3.png";
+import img7 from "../assets/img4.png";
 import descImg from "../assets/sri.jpg";
 
 export default function FrontPage() {
@@ -41,9 +41,10 @@ export default function FrontPage() {
               </div>
             </div>
           ))}
+
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="" aria-hidden="true"></span>
           <span className="visually-hidden">Previous</span>
         </button>
         <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
@@ -99,9 +100,14 @@ export default function FrontPage() {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6 text-white">
-              <h2>Leading Travel Destination</h2>
-              <p>Explore the wonders of Sri Lanka with world-class hospitality.</p>
+              <h3>Wildlife & Nature</h3>
+              <p>Sri Lanka is home to incredible biodiversity, with national parks like Yala, Udawalawe, and Minneriya offering unforgettable safaris featuring elephants, leopards, and exotic birds.</p>
+
+             
+              <p>Explore the UNESCO-listed sites of Sigiriya, the Dambulla Cave Temple, and the sacred city of Kandy, where the famous Temple of the Tooth Relic is located.</p>
             </div>
+
+
             <div className="col-md-6">
               <img src={descImg} alt="Scenic View" className="img-fluid rounded" />
             </div>

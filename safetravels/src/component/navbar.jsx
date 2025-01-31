@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import './navepage.css';
-import img4 from "../assets/taj-hotels-vector-logo.png";
+import img4 from "../assets/11.png";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <a className="navbar-brand text-primary" href="#">
-        <img src={img4} alt="Logo" width="110" height="50"/>
+        <img src={img4} alt="Logo" width="200" height="50"/>
         
         </a>
         

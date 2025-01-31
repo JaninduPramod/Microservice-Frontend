@@ -2,6 +2,7 @@ import React from "react";
 import "./Invoice.css";
 
 function InvoicePage() {
+  
   return (
     <div className="invoice-container">
       <header className="invoice-header">

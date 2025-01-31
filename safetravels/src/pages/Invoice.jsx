@@ -16,7 +16,7 @@ function InvoicePage() {
 
         // Filter pending and confirmed bookings
         setPendingBookings(bookingsArray.filter((booking) => booking.booking_status === "pending"));
-        setConfirmedBookings(bookingsArray.filter((booking) => booking.booking_status === "confirmed"));
+        setConfirmedBookings(bookingsArray.filter((booking) => booking.booking_status === "payed"));
 
         setLoading(false);
       })
@@ -93,7 +93,7 @@ function InvoicePage() {
       .then((response) => response.json())
       .then(() => {
         setPendingBookings((prev) => prev.filter((booking) => booking.book_id !== bookingId));
-        setConfirmedBookings((prev) => [...prev, { ...pendingBookings.find((b) => b.book_id === bookingId), booking_status: "confirmed" }]);
+        setConfirmedBookings((prev) => [...prev, { ...pendingBookings.find((b) => b.book_id === bookingId), booking_status: "payed" }]);
         alert("Payment successful! Booking confirmed.");
       })
       .catch((error) => {
@@ -151,7 +151,7 @@ function InvoicePage() {
         </table>
 
         {/* CONFIRMED BOOKINGS TABLE */}
-        <h2>Confirmed Bookings</h2>
+        <h2>payed Bookings</h2>
         <table className="invoice-table">
           <thead>
             <tr>

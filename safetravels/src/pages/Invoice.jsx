@@ -85,10 +85,10 @@ function InvoicePage() {
 
   const  handlePay = (bookingId) => {
     if (window.confirm("Are you sure you want to pay this Bill?")) {
-      fetch(`http://localhost:8081/api/v4/updatebooking2/${bookingId}`, {
+      fetch(`http://localhost:8081/api/v4/bookingchange/${bookingId}`, {
         method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ booking_status: "confirmed" }),
+      body: JSON.stringify({ booking_status: "payed" }),
       })
       .then((response) => response.json())
       .then(() => {

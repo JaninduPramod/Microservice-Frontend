@@ -172,3 +172,30 @@ h2::after {
   width: auto;
   border-radius: 7px;
 }
+.carousel-control-prev:hover{
+  opacity: 20%;
+  background-color: #f4f4f4;}
+  
+
+  
+  .ccarousel-control-prev{
+    opacity: 0;  
+    cursor: pointer;
+    background-color: #f4f4f4;
+   }
+  .carousel-control-next {
+    opacity: 0;  
+    cursor: pointer;
+    background-color: #f4f4f4;
+   }
+
+
+  .carousel-control-next:hover{
+    opacity: 20%;
+    background-color: #f4f4f4;}
+
+    .img-fluid{
+      width: 30%;
+      width: auto;
+    }
+

@@ -40,22 +40,13 @@ const Navbar = () => {
               Register
               </Link>
             </li>
-            
             <li className="nav-item">
               <Link to="/invoice" className="nav-link">
                 Invoice
               </Link>
             </li>
             <li className="nav-item dropdown ">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                More
-              </a>
+              
               <ul className="dropdown-menu">
                 <li>
                   <a className="dropdown-item" href="#">

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
-import "./Login.css"; 
+import axios from "axios";
+import "./Registrer.css";
 
 const Register = () => {
     const [user, setUser] = useState({
@@ -11,7 +11,6 @@ const Register = () => {
         mobile: "",
         password: "",
         username: "",
-         
     });
 
     const handleChange = (e) => {
@@ -31,18 +30,70 @@ const Register = () => {
     };
 
     return (
-        <div className="register-container">
-            <h2>User Registration</h2>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="username" placeholder="Username" onChange={handleChange} required />
-                <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-                <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-                <input type="text" name="mobile" placeholder="Mobile" onChange={handleChange} required />
-                <input type="text" name="address" placeholder="Address" onChange={handleChange} required />
-                <input type="number" name="age" placeholder="Age" onChange={handleChange} required /> <br/>
-                <button type="submit">Register</button>
-            </form><br/>
-            <p>Already have an account? <Link to="/login">Login here</Link></p>
+        <div className="register-page">
+            <div className="register-container">
+                <h2>Create Your Account</h2>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        value={user.username}
+                        onChange={handleChange}
+                        required
+                        className="register-input"
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={user.password}
+                        onChange={handleChange}
+                        required
+                        className="register-input"
+                    />
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        value={user.email}
+                        onChange={handleChange}
+                        required
+                        className="register-input"
+                    />
+                    <input
+                        type="text"
+                        name="mobile"
+                        placeholder="Mobile Number"
+                        value={user.mobile}
+                        onChange={handleChange}
+                        required
+                        className="register-input"
+                    />
+                    <input
+                        type="text"
+                        name="address"
+                        placeholder="Address"
+                        value={user.address}
+                        onChange={handleChange}
+                        required
+                        className="register-input"
+                    />
+                    <input
+                        type="number"
+                        name="age"
+                        placeholder="Age"
+                        value={user.age}
+                        onChange={handleChange}
+                        required
+                        className="register-input"
+                    />
+                    <button type="submit" className="register-button">
+                        Sign Up
+                    </button>
+                </form>
+                <p>Already have an account? <Link to="/login" className="register-link">Login here</Link></p>
+            </div>
         </div>
     );
 };

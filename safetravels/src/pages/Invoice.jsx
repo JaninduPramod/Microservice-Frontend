@@ -14,7 +14,6 @@ function InvoicePage() {
       .then((data) => {
         const bookingsArray = Array.isArray(data) ? data : [data];
 
-        // Filter pending and confirmed bookings
         setPendingBookings(bookingsArray.filter((booking) => booking.booking_status === "pending"));
         setConfirmedBookings(bookingsArray.filter((booking) => booking.booking_status === "payed"));
 
@@ -38,16 +37,14 @@ function InvoicePage() {
     if (!selectedBooking) return;
 
     const { book_id, ...updatedData } = selectedBooking;
-    
+
     fetch(`http://localhost:8081/api/v4/updatebooking/${book_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedData),
     })
       .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to update booking");
-        }
+        if (!response.ok) throw new Error("Failed to update booking");
         return response.json();
       })
       .then(() => {
@@ -71,9 +68,7 @@ function InvoicePage() {
         method: "DELETE",
       })
         .then((response) => {
-          if (!response.ok) {
-            throw new Error("Failed to delete booking");
-          }
+          if (!response.ok) throw new Error("Failed to delete booking");
           setPendingBookings((prev) => prev.filter((booking) => booking.book_id !== bookingId));
         })
         .catch((error) => {
@@ -83,30 +78,36 @@ function InvoicePage() {
     }
   };
 
-  const  handlePay = (bookingId) => {
+  const handlePay = (bookingId) => {
     if (window.confirm("Are you sure you want to pay this Bill?")) {
       fetch(`http://localhost:8081/api/v4/bookingchange/${bookingId}`, {
         method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ booking_status: "payed" }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ booking_status: "payed" }),
       })
-      .then((response) => response.json())
-      .then(() => {
-        setPendingBookings((prev) => prev.filter((booking) => booking.book_id !== bookingId));
-        setConfirmedBookings((prev) => [...prev, { ...pendingBookings.find((b) => b.book_id === bookingId), booking_status: "payed" }]);
-        alert("Payment successful! Booking confirmed.");
-      })
-      .catch((error) => {
-        console.error("Error updating booking status:", error);
-        alert("Payment failed. Please try again.");
-      });
+        .then((response) => response.json())
+        .then(() => {
+          setPendingBookings((prev) => prev.filter((booking) => booking.book_id !== bookingId));
+          setConfirmedBookings((prev) => [
+            ...prev,
+            { ...pendingBookings.find((b) => b.book_id === bookingId), booking_status: "payed" },
+          ]);
+          alert("Payment successful! Booking confirmed.");
+        })
+        .catch((error) => {
+          console.error("Error updating booking status:", error);
+          alert("Payment failed. Please try again.");
+        });
     }
   };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error fetching data: {error.message}</p>;
 
-  const grandTotal = [...pendingBookings, ...confirmedBookings].reduce((sum, booking) => sum + booking.total_bill, 0);
+  const grandTotal = [...pendingBookings, ...confirmedBookings].reduce(
+    (sum, booking) => sum + booking.total_bill,
+    0
+  );
 
   return (
     <div className="invoice-container">
@@ -115,7 +116,6 @@ function InvoicePage() {
       </header>
 
       <div className="invoice-content">
-        {/* PENDING BOOKINGS TABLE */}
         <h2>Pending Bookings</h2>
         <table className="invoice-table">
           <thead>
@@ -140,18 +140,21 @@ function InvoicePage() {
                 <td>{booking.no_of_packages}</td>
                 <td>${booking.total_bill}</td>
                 <td>
-                  <button onClick={() => handleDelete(booking.book_id)}>Delete</button>
+                  <button className="delete-btn" onClick={() => handleDelete(booking.book_id)}>
+                    Delete
+                  </button>
                 </td>
                 <td>
-                  <button  className="button2" onClick={() =>  handlePay(booking.book_id)}>Pay</button>
+                  <button className="pay-btn" onClick={() => handlePay(booking.book_id)}>
+                    Pay
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
 
-        {/* CONFIRMED BOOKINGS TABLE */}
-        <h2>payed Bookings</h2>
+        <h2>Paid Bookings</h2>
         <table className="invoice-table">
           <thead>
             <tr>
@@ -177,60 +180,9 @@ function InvoicePage() {
           </tbody>
         </table>
 
-        {/* GRAND TOTAL */}
         <div className="invoice-total">
           <h3>Grand Total: ${grandTotal}.00</h3>
         </div>
-
-        {/* UPDATE FORM */}
-        {selectedBooking && (
-          <div className="update-form">
-            <h2>Update Booking</h2>
-            <label htmlFor="hotel_id">HOTEL Number</label>
-            <input
-              type="text"
-              name="hotel_id"
-              value={selectedBooking.hotel_id}
-              onChange={handleChange}
-            />
-
-            <label>Booking ID: 00{selectedBooking?.book_id || ""}</label>
-
-            <label htmlFor="package_id">Package ID</label>
-            <input
-              type="text"
-              name="package_id"
-              value={selectedBooking.package_id}
-              onChange={handleChange}
-            />
-
-            <label htmlFor="no_of_days">Days</label>
-            <input
-              type="number"
-              name="no_of_days"
-              value={selectedBooking.no_of_days}
-              onChange={handleChange}
-            />
-
-            <label htmlFor="no_of_packages">Package</label>
-            <input
-              type="number"
-              name="no_of_packages"
-              value={selectedBooking.no_of_packages}
-              onChange={handleChange}
-            />
-<div className="invoice-total">
-            <label htmlFor="total_bill ">Total Bill : $ {selectedBooking.total_bill|| ""}.00</label></div>
-            {/* <input
-              type="number"
-              name="total_bill"
-              value={selectedBooking.total_bill}
-              onChange={handleChange}
-            /> */}
-
-            <button onClick={handleUpdate}>Update</button>
-          </div>
-        )}
       </div>
     </div>
   );

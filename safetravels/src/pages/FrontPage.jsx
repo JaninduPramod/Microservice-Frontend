@@ -35,10 +35,7 @@ export default function FrontPage() {
           {[img1, img2, img3].map((img, index) => (
             <div className={`carousel-item ${index === 0 ? "active" : ""}`} key={index}>
               <img src={img} className="d-block w-100" alt={`Slide ${index + 1}`} />
-              <div className="carousel-caption d-none d-md-block">
-                <h5>Slide {index + 1} Title</h5>
-                <p>Slide {index + 1} description.</p>
-              </div>
+              
             </div>
           ))}
 

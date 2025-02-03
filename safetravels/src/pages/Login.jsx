@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css"; 
 
 const Login = () => {
@@ -13,18 +12,13 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:8082/api/v3/login", {
-                email,
-                password
-            });
+            const response = await axios.post("http://localhost:8082/api/v3/login", { email, password });
 
             console.log("Response:", response.data);
             
             if (response.data === "Login successful") {
                 setMessage("Login successful!");
-
                 localStorage.setItem("userEmail", email);
-                
                 navigate("/home");  
             } else {
                 setMessage("Invalid email or password.");
@@ -36,28 +30,32 @@ const Login = () => {
     };
 
     return (
-        <div className="register-container ">
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <input 
-                    type="email" 
-                    placeholder="Email" 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <input 
-                    type="password" 
-                    placeholder="Password" 
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <button type="submit">Login</button>
-            </form>
-            {message && <p>{message}</p>}  <br/>
-            <p><Link to="/forgot-password">Forgot Password?</Link></p><br/>
-            <p>Don't have an account? <Link to="/register">Register here</Link></p>
+        <div className="login-page">
+            <div className="login-container">
+                <h2>Login</h2>
+                <form onSubmit={handleSubmit}>
+                    <input 
+                        type="email" 
+                        placeholder="Email" 
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="login-input"
+                    />
+                    <input 
+                        type="password" 
+                        placeholder="Password" 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        className="login-input"
+                    />
+                    <button type="submit" className="login-button">Login</button>
+                </form>
+                {message && <p className="login-message">{message}</p>}  
+                <p><Link to="/forgot-password" className="login-link">Forgot Password?</Link></p>
+                <p>Don't have an account? <Link to="/register" className="login-link">Register here</Link></p>
+            </div>
         </div>
     );
 };

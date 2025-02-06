@@ -1,0 +1,78 @@
+.notify-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+
+.notify-heading {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.notify-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.notify-table th,
+.notify-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.notify-table th {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.notify-table td {
+    background-color: #f9f9f9;
+}
+
+/* Delete Button */
+.notify-btn {
+    padding: 8px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    font-size: 14px;
+}
+
+.notify-btn:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .notify-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .notify-table th,
+    .notify-table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .notify-btn {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}

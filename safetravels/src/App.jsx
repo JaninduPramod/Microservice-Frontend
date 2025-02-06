@@ -8,6 +8,7 @@ import InvoicePage from './pages/Invoice.jsx';
 import Login from './pages/Login.jsx';
 import ForgotPassword from './pages/ForgotPassword.jsx';
 import OtpVerification from './pages/OtpVerification.jsx';
+import Notyfy from './pages/Notyfy.jsx';
 // import Home from './pages/Home.jsx';
 // import Hotel from './pages/Hotel.jsx';
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path="/forgot-password" element={<ForgotPassword/>}/>
         <Route path="/otp" element={<OtpVerification/>}/>
+        <Route path='/Notify' element={<Notyfy/>} />
 
 
 

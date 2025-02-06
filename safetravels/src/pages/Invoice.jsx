@@ -9,7 +9,7 @@ function InvoicePage() {
   const [confirmedBookings, setConfirmedBookings] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8083/api/v5/booking/3")
+    fetch("http://localhost:8083/api/v5/booking/1")
       .then((response) => response.json())
       .then((data) => {
         const bookingsArray = Array.isArray(data) ? data : [data];

@@ -17,9 +17,9 @@ const ForgotPassword = () => {
         try {
             const response = await axios.post("http://localhost:8082/api/v3/forgot-password", { email });
             setMessage({ text: response.data, type: "success" });
-            setTimeout(() => navigate("/login"), 5000); 
+            navigate("/otp"); 
         } catch (error) {
-            setMessage({ text: "Error sending password reset email.", type: "error" });
+            setMessage({ text: "Invalid user !!!", type: "error" });
         } finally {
             setIsLoading(false);
         }
